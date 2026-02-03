@@ -414,7 +414,7 @@ const AboutUs: React.FC = () => {
         
         <AboutGrid>
           <ImagePlaceholder>
-            <img src="/images/professionalOfficeEnvironment.jpg" alt="Team Collaboration Image" />
+            <img src="/images/professionalOfficeEnvironment.jpg" alt="Team collaboration in modern office" />
           </ImagePlaceholder>
           <AboutText>
             <h2>Our Approach</h2>

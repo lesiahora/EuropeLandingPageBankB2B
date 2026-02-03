@@ -34,7 +34,7 @@ const Nav = styled.nav`
 
 const Logo = styled(Link)`
   font-size: 1.9rem;
-  font-weight: 400;
+  font-weight: 340;
   color: #000000;
   text-decoration: none;
   font-family: 'Cormorant', serif;
