@@ -162,10 +162,10 @@ const FormGroup = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
-  color: #1a1a1a;
-  font-weight: 400;
+  color: #000000;
+  font-weight: 500;
   font-size: 0.9375rem;
-  font-family: 'Cormorant', serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   
   @media (max-width: 425px) {
     font-size: 0.875rem;
@@ -342,7 +342,7 @@ const InfoCard = styled.div`
 const IconWrapper = styled.div`
   width: 50px;
   height: 50px;
-  background-color: #1a1a1a;
+  background-color: transparent;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
@@ -350,6 +350,21 @@ const IconWrapper = styled.div`
   font-size: 1.5rem;
   flex-shrink: 0;
   color: white;
+  
+  img {
+    width: 24px;
+    height: 24px;
+    
+    @media (max-width: 425px) {
+      width: 20px;
+      height: 20px;
+    }
+    
+    @media (max-width: 320px) {
+      width: 18px;
+      height: 18px;
+    }
+  }
   
   @media (max-width: 425px) {
     width: 40px;
@@ -368,18 +383,18 @@ const InfoContent = styled.div`
   flex: 1;
   
   h3 {
-    font-size: 1.125rem;
+    font-size: 0.9375rem;
     margin-bottom: 0.5rem;
-    color: #1a1a1a;
-    font-weight: 400;
-    font-family: 'Cormorant', serif;
+    color: #000000;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     
     @media (max-width: 425px) {
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
     
     @media (max-width: 320px) {
-      font-size: 0.9375rem;
+      font-size: 0.8125rem;
     }
   }
   
@@ -400,14 +415,15 @@ const InfoContent = styled.div`
 `;
 
 const MapPlaceholder = styled.div`
-  background: linear-gradient(135deg, #e5e5e5, #f5f5f5);
   height: 300px;
   border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 1rem;
+  overflow: hidden;
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
   
   @media (max-width: 768px) {
     height: 250px;
@@ -415,7 +431,6 @@ const MapPlaceholder = styled.div`
   
   @media (max-width: 425px) {
     height: 200px;
-    font-size: 0.875rem;
   }
   
   @media (max-width: 320px) {
@@ -427,6 +442,8 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    subject: '',
     message: ''
   });
 
@@ -461,14 +478,14 @@ const Contact: React.FC = () => {
           <ContactForm onSubmit={handleSubmit}>
             <h2>Send Us a Message</h2>
             <FormGroup>
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Full Name</Label>
               <Input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your name"
+                placeholder="Your name and surname"
                 required
               />
             </FormGroup>
@@ -482,6 +499,31 @@ const Contact: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="your.email@example.com"
+                required
+              />
+            </FormGroup>
+            
+            <FormGroup>
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="+44 161 000 0000"
+              />
+            </FormGroup>
+            
+            <FormGroup>
+              <Label htmlFor="subject">Subject</Label>
+              <Input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="How can we help you?"
                 required
               />
             </FormGroup>
@@ -512,35 +554,41 @@ const Contact: React.FC = () => {
             
             <InfoCards>
               <InfoCard>
-                <IconWrapper>📍</IconWrapper>
+                <IconWrapper>
+                  <img src="/images/location.png" alt="Location" />
+                </IconWrapper>
                 <InfoContent>
                   <h3>Address</h3>
                   <p>
-                    123 Business Street<br />
-                    London, EC1A 1BB<br />
-                    United Kingdom
+                    Business Centre, Deansgate, Manchester, United Kingdom
                   </p>
                 </InfoContent>
               </InfoCard>
               
               <InfoCard>
-                <IconWrapper>📞</IconWrapper>
+                <IconWrapper>
+                  <img src="/images/telephone.png" alt="Phone" />
+                </IconWrapper>
                 <InfoContent>
                   <h3>Phone</h3>
-                  <p>+44 20 1234 5678</p>
+                  <p>+44 161 000 3842</p>
                 </InfoContent>
               </InfoCard>
               
               <InfoCard>
-                <IconWrapper>✉️</IconWrapper>
+                <IconWrapper>
+                  <img src="/images/email.png" alt="Email" />
+                </IconWrapper>
                 <InfoContent>
                   <h3>Email</h3>
-                  <p>info@eubusiness.com</p>
+                  <p>info@northbridge.com</p>
                 </InfoContent>
               </InfoCard>
               
               <InfoCard>
-                <IconWrapper>🕐</IconWrapper>
+                <IconWrapper>
+                  <img src="/images/businessHours.png" alt="Business Hours" />
+                </IconWrapper>
                 <InfoContent>
                   <h3>Business Hours</h3>
                   <p>
@@ -552,7 +600,13 @@ const Contact: React.FC = () => {
             </InfoCards>
             
             <MapPlaceholder>
-              [Map Location Placeholder]
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.2886179446194!2d-2.2468142!3d53.4807346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb1e5e4b8b4f7%3A0x5d9b5e5e5e5e5e5e!2sDeansgate%2C%20Manchester!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Business Location"
+              />
             </MapPlaceholder>
           </ContactInfo>
         </ContactGrid>

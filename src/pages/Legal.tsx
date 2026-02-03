@@ -7,48 +7,81 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
 `;
 
 const HeroSection = styled.section`
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: white;
-  padding: 4rem 2rem;
+  background-color: #f8f5ee;
+  color: #1a1a1a;
+  padding: 6rem 2rem;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 5rem 1.5rem;
+  }
+  
+  @media (max-width: 425px) {
+    padding: 3.5rem 1rem;
+  }
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  font-family: 'Cormorant', serif;
+  line-height: 1.2;
   
   @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: 425px) {
     font-size: 2rem;
   }
 `;
 
 const HeroSubtitle = styled.p`
-  font-size: 1.2rem;
-  color: #ccc;
+  font-size: 1.125rem;
+  color: #666;
   max-width: 800px;
   margin: 0 auto;
+  line-height: 1.7;
+  
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
 `;
 
 const ContentSection = styled.section`
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   max-width: 900px;
   margin: 0 auto;
+  background-color: #ffffff;
+  
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+  
+  @media (max-width: 425px) {
+    padding: 3rem 1rem;
+  }
 `;
 
 const LegalContent = styled.div`
-  background: white;
+  background: #f8f5ee;
   padding: 3rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
   
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.875rem;
     margin-bottom: 1rem;
     margin-top: 2rem;
-    color: #1a1a2e;
+    color: #1a1a1a;
+    font-weight: 300;
+    font-family: 'Cormorant', serif;
     
     &:first-child {
       margin-top: 0;
@@ -59,13 +92,15 @@ const LegalContent = styled.div`
     font-size: 1.3rem;
     margin-bottom: 0.75rem;
     margin-top: 1.5rem;
-    color: #1a1a2e;
+    color: #1a1a1a;
+    font-weight: 400;
   }
   
   p {
     color: #666;
     line-height: 1.8;
     margin-bottom: 1rem;
+    font-size: 1.0625rem;
   }
   
   ul {
@@ -81,6 +116,10 @@ const LegalContent = styled.div`
   
   @media (max-width: 768px) {
     padding: 2rem;
+  }
+  
+  @media (max-width: 425px) {
+    padding: 1.5rem;
   }
 `;
 
@@ -193,12 +232,9 @@ const Legal: React.FC = () => {
             If you have any questions about this Privacy Policy, please contact us at:
           </p>
           <p>
-            <strong>EU Business Solutions</strong><br />
-            123 Business Street<br />
-            London, EC1A 1BB<br />
-            United Kingdom<br />
-            Email: privacy@eubusiness.com<br />
-            Phone: +44 20 1234 5678
+            <strong>Northbridge Strategic Solutions</strong><br />
+            Business Centre, Deansgate, Manchester, United Kingdom<br />
+            Phone: +44 161 000 3842
           </p>
         </LegalContent>
       </ContentSection>

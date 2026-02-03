@@ -104,6 +104,7 @@ const AboutGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   margin-bottom: 4rem;
+  align-items: start;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -154,18 +155,25 @@ const AboutText = styled.div`
 `;
 
 const ImagePlaceholder = styled.div`
-  background-color: #f8f5ee;
-  border: 1px solid #e5e5e5;
+  background-color: transparent;
+  border: none;
   height: 400px;
-  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #666;
   font-size: 1.1rem;
+  margin-top: 3.5rem;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   
   @media (max-width: 768px) {
     height: 300px;
+    margin-top: 0;
   }
   
   @media (max-width: 425px) {
@@ -239,7 +247,6 @@ const ValuesGrid = styled.div`
 const ValueCard = styled.div`
   background: #f8f5ee;
   padding: 2rem;
-  border-radius: 0.5rem;
   border: 1px solid #e5e5e5;
   transition: transform 0.2s, box-shadow 0.2s;
   
@@ -260,7 +267,6 @@ const ValueCard = styled.div`
 const ValueIcon = styled.div`
   width: 60px;
   height: 60px;
-  border-radius: 0.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,9 +386,9 @@ const AboutUs: React.FC = () => {
       
       <HeroSection>
         <HeroContent>
-          <HeroTitle>About EU Business Solutions</HeroTitle>
+          <HeroTitle>About Northbridge Strategic Solutions</HeroTitle>
           <HeroSubtitle>
-            Empowering businesses with professional consulting and financial services since 2011
+            Empowering businesses with professional consulting and financial services since November 2025
           </HeroSubtitle>
         </HeroContent>
       </HeroSection>
@@ -392,34 +398,34 @@ const AboutUs: React.FC = () => {
           <AboutText>
             <h2>Our Story</h2>
             <p>
-              EU Business Solutions was founded with a clear mission: to provide exceptional business consulting and financial services that help companies navigate complex challenges and achieve sustainable growth.
+              Northbridge Strategic Solutions was founded in November 2025 with a clear vision: to help businesses make confident, informed decisions in an increasingly complex and competitive environment.
             </p>
             <p>
-              Over the years, we have built a reputation for delivering personalized solutions that address the unique needs of each client. Our team of experienced professionals brings together expertise from various industries, ensuring that we can provide comprehensive support across all aspects of your business.
+              Based in the United Kingdom, we work with companies across multiple industries, providing strategic consulting, financial insight, and practical solutions tailored to real business challenges. From day one, our focus has been on clarity, integrity, and long-term value for our clients.
             </p>
             <p>
-              From small startups to established enterprises, we have helped hundreds of clients optimize their operations, improve financial performance, and achieve their strategic objectives.
+              Whether supporting growing startups or established organizations, Northbridge Strategic Solutions is committed to building strong partnerships and delivering results that drive sustainable growth and operational excellence.
             </p>
           </AboutText>
           <ImagePlaceholder>
-            [Professional Office Environment]
+            <img src="/images/teamCollaborationImage.jpg" alt="Professional Office Environment" />
           </ImagePlaceholder>
         </AboutGrid>
         
         <AboutGrid>
           <ImagePlaceholder>
-            [Team Collaboration Image]
+            <img src="/images/professionalOfficeEnvironment.jpg" alt="Team Collaboration Image" />
           </ImagePlaceholder>
           <AboutText>
             <h2>Our Approach</h2>
             <p>
-              We believe that every business is unique, which is why we take the time to understand your specific challenges, goals, and industry context before recommending solutions.
+              At Northbridge Strategic Solutions, we believe that effective consulting starts with understanding. We take the time to deeply analyze each client's goals, market position, and operational structure before proposing any solution.
             </p>
             <p>
-              Our approach is built on three core principles: transparency, expertise, and partnership. We work closely with our clients to ensure they understand every aspect of our recommendations and feel confident in the decisions they make.
+              Our approach combines strategic thinking, data-driven analysis, and hands-on expertise. Rather than offering generic recommendations, we develop customized strategies designed to be practical, measurable, and aligned with each client's long-term objectives.
             </p>
             <p>
-              With EU Business Solutions, you gain more than just a service provider – you gain a trusted partner committed to your long-term success.
+              By maintaining close collaboration and clear communication throughout every engagement, we ensure that our clients not only receive expert guidance, but also gain the confidence and insight needed to move their business forward.
             </p>
           </AboutText>
         </AboutGrid>

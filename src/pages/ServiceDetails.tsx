@@ -8,13 +8,18 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
 `;
 
 const HeroSection = styled.section`
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: white;
-  padding: 4rem 2rem;
+  background-color: #f8f5ee;
+  color: #1a1a1a;
+  padding: 6rem 2rem;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 5rem 1.5rem;
+  }
 `;
 
 const Breadcrumb = styled.div`
@@ -23,40 +28,50 @@ const Breadcrumb = styled.div`
   font-size: 0.9rem;
   
   a {
-    color: #4a90e2;
+    color: #666;
     text-decoration: none;
     
     &:hover {
-      text-decoration: underline;
+      color: #1a1a1a;
     }
   }
   
   span {
-    color: #ccc;
+    color: #999;
     margin: 0 0.5rem;
   }
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  font-family: 'Cormorant', serif;
+  line-height: 1.2;
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 `;
 
 const HeroSubtitle = styled.p`
-  font-size: 1.2rem;
-  color: #ccc;
+  font-size: 1.125rem;
+  color: #666;
   max-width: 800px;
   margin: 0 auto;
+  line-height: 1.7;
 `;
 
 const ContentSection = styled.section`
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: #ffffff;
+  
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
 `;
 
 const ContentGrid = styled.div`
@@ -73,8 +88,10 @@ const MainContent = styled.div`
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #1a1a2e;
+    color: #1a1a1a;
     margin-top: 2rem;
+    font-weight: 300;
+    font-family: 'Cormorant', serif;
     
     &:first-child {
       margin-top: 0;
@@ -84,15 +101,16 @@ const MainContent = styled.div`
   h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #1a1a2e;
+    color: #1a1a1a;
     margin-top: 1.5rem;
+    font-weight: 400;
   }
   
   p {
     color: #666;
     line-height: 1.8;
     margin-bottom: 1rem;
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
   }
   
   ul {
@@ -112,7 +130,7 @@ const MainContent = styled.div`
       content: "✓";
       position: absolute;
       left: 0;
-      color: #4a90e2;
+      color: #1a1a1a;
       font-weight: bold;
     }
   }
@@ -122,16 +140,23 @@ const Sidebar = styled.aside`
   h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: #1a1a2e;
+    color: #1a1a1a;
+    font-weight: 400;
   }
 `;
 
 const ServiceCard = styled.div`
-  background: white;
+  background: #f8f5ee;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
   margin-bottom: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
 `;
 
 const ServiceList = styled.div`
@@ -144,47 +169,49 @@ const ServiceLink = styled(Link)`
   color: #666;
   text-decoration: none;
   padding: 0.75rem;
-  border-radius: 5px;
-  transition: all 0.3s;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  display: block;
   
   &:hover {
-    background-color: #f8f9fa;
-    color: #4a90e2;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
   }
 `;
 
 const CTACard = styled.div`
-  background: linear-gradient(135deg, #4a90e2, #357abd);
+  background: #1a1a1a;
   color: white;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   text-align: center;
   
   h3 {
     color: white;
     margin-bottom: 1rem;
+    font-weight: 400;
   }
   
   p {
     margin-bottom: 1.5rem;
     color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9375rem;
   }
 `;
 
 const WhiteButton = styled(Link)`
   background-color: white;
-  color: #4a90e2;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  color: #1a1a1a;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s;
+  font-weight: 500;
+  transition: background-color 0.2s;
   display: inline-block;
+  font-size: 0.875rem;
   
   &:hover {
-    background-color: #f8f9fa;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
   }
 `;
 
@@ -197,19 +224,25 @@ const BenefitsGrid = styled.div`
 
 const BenefitCard = styled.div`
   padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-  border-left: 4px solid #4a90e2;
+  background: #f8f5ee;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
   
   h4 {
-    color: #1a1a2e;
+    color: #1a1a1a;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
+    font-weight: 500;
   }
   
   p {
     color: #666;
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     margin: 0;
   }
 `;
@@ -225,7 +258,7 @@ const ServiceDetails: React.FC = () => {
           <span>/</span>
           <Link to="/services">Services</Link>
           <span>/</span>
-          <span style={{ color: 'white' }}>Business Consulting</span>
+          <span style={{ color: '#1a1a1a', fontWeight: 500 }}>Business Consulting</span>
         </Breadcrumb>
         <HeroTitle>Business Consulting</HeroTitle>
         <HeroSubtitle>

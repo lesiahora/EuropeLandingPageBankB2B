@@ -657,9 +657,9 @@ const Home: React.FC = () => {
       <HeroSection>
         <HeroContainer>
           <HeroContent>
-            <HeroTitle>Your Partner in Business Success 123</HeroTitle>
+            <HeroTitle>Your Partner in Business Success</HeroTitle>
             <HeroSubtitle>
-              Crown Time provides comprehensive business consulting and financial services to help your business thrive in today's competitive landscape.
+              Northbridge Strategic Solutions helps businesses make smarter strategic and financial decisions through clear insight, structured analysis, and practical consulting.
             </HeroSubtitle>
             <CTAButtons>
               <PrimaryButton to="/contact">Get Started</PrimaryButton>
@@ -727,20 +727,20 @@ const Home: React.FC = () => {
       <StatsSection>
         <StatsGrid>
           <StatItem>
-            <h3>200+</h3>
-            <p>Clients Served</p>
+            <h3>2025</h3>
+            <p>Founded</p>
           </StatItem>
           <StatItem>
-            <h3>15+</h3>
-            <p>Years Experience</p>
+            <h3>EU</h3>
+            <p>Market Focus</p>
           </StatItem>
           <StatItem>
-            <h3>98%</h3>
-            <p>Client Satisfaction</p>
+            <h3>Senior</h3>
+            <p>Advisory Team</p>
           </StatItem>
           <StatItem>
-            <h3>24/7</h3>
-            <p>Support Available</p>
+            <h3>100%</h3>
+            <p>Compliance-aware Approach</p>
           </StatItem>
         </StatsGrid>
       </StatsSection>
@@ -748,12 +748,12 @@ const Home: React.FC = () => {
       <AboutSection>
         <AboutContent>
           <AboutText>
-            <h2>About Crown Time</h2>
+            <h2>About Northbridge Strategic Solutions</h2>
             <p>
-              Crown Time is a leading provider of business consulting and financial services. With years of experience and a team of dedicated professionals, we help businesses of all sizes achieve their financial goals.
+              Northbridge Strategic Solutions is a UK-based business consulting firm focused on helping organizations navigate financial and strategic complexity with confidence. We provide practical, data-driven advice tailored to each client's unique challenges and goals.
             </p>
             <p>
-              Our commitment to excellence and personalized service has made us the trusted partner for countless businesses seeking to optimize their financial operations and strategic planning.
+              Our team combines strategic thinking with hands-on experience, allowing us to deliver clear guidance that supports informed decision-making, operational efficiency, and sustainable growth across a wide range of industries.
             </p>
             <AboutButton to="/about">Discover Our Story</AboutButton>
           </AboutText>
@@ -767,7 +767,7 @@ const Home: React.FC = () => {
         <CTAContent>
           <h2>Ready to Grow Your Business?</h2>
           <p>
-            Let's discuss how Crown Time can help you achieve your business goals with our comprehensive services.
+            Let's discuss how Northbridge Strategic Solutions can help you achieve your business goals with our comprehensive services.
           </p>
           <WhiteButton to="/contact">Schedule a Consultation</WhiteButton>
         </CTAContent>

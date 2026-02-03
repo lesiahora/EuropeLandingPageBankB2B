@@ -50,24 +50,24 @@ const FooterSection = styled.div`
   h3 {
     color: #ffffff;
     margin-bottom: 1.25rem;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     
     @media (max-width: 768px) {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       margin-bottom: 1.125rem;
     }
     
     @media (max-width: 425px) {
-      font-size: 0.8125rem;
+      font-size: 0.6875rem;
       margin-bottom: 1rem;
     }
     
     @media (max-width: 320px) {
-      font-size: 0.75rem;
+      font-size: 0.625rem;
       margin-bottom: 0.875rem;
     }
   }
@@ -80,11 +80,11 @@ const FooterSection = styled.div`
     font-size: 1.5rem;
     
     @media (max-width: 768px) {
-      font-size: 1.375rem;
+      font-size: 1.35rem;
     }
     
     @media (max-width: 425px) {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
     
     @media (max-width: 320px) {
@@ -103,18 +103,18 @@ const FooterLink = styled(Link)`
   color: #b3b3b3;
   text-decoration: none;
   transition: color 0.2s;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   
   &:hover {
     color: #ffffff;
   }
   
   @media (max-width: 425px) {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
   
   @media (max-width: 320px) {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
   }
 `;
 
@@ -123,7 +123,7 @@ const ContactInfo = styled.div`
   flex-direction: column;
   gap: 0.625rem;
   color: #b3b3b3;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   
   p {
     margin: 0;
@@ -133,12 +133,40 @@ const ContactInfo = styled.div`
   }
   
   @media (max-width: 425px) {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     gap: 0.5rem;
   }
   
   @media (max-width: 320px) {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
+  }
+`;
+
+const ContactItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  
+  img {
+    width: 20px;
+    height: 20px;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
+    
+    @media (max-width: 425px) {
+      width: 18px;
+      height: 18px;
+    }
+    
+    @media (max-width: 320px) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  
+  div {
+    flex: 1;
   }
 `;
 
@@ -184,7 +212,7 @@ const Footer: React.FC = () => {
     <FooterWrapper>
       <FooterContent>
         <FooterSection>
-          <h3>Crown Time</h3>
+          <h3>Northbridge Strategic Solutions</h3>
           <ContactInfo>
             <p>Professional business consulting and financial services to help your business thrive.</p>
           </ContactInfo>
@@ -213,17 +241,32 @@ const Footer: React.FC = () => {
         <FooterSection>
           <h3>Contact</h3>
           <ContactInfo>
-            <p>123 Business Street</p>
-            <p>London, EC1A 1BB</p>
-            <p>United Kingdom</p>
-            <p>+44 20 1234 5678</p>
-            <p>info@crowntime.com</p>
+            <ContactItem>
+              <img src="/images/location.png" alt="Location" />
+              <div>
+                <p>Business Centre, Deansgate</p>
+                <p>Manchester</p>
+                <p>United Kingdom</p>
+              </div>
+            </ContactItem>
+            <ContactItem>
+              <img src="/images/telephone.png" alt="Phone" />
+              <div>
+                <p>+44 161 000 3842</p>
+              </div>
+            </ContactItem>
+            <ContactItem>
+              <img src="/images/email.png" alt="Email" />
+              <div>
+                <p>info@northbridge.com</p>
+              </div>
+            </ContactItem>
           </ContactInfo>
         </FooterSection>
       </FooterContent>
       
       <Copyright>
-        <p>© 2026 Crown Time. All rights reserved. | <Link to="/legal">Privacy Policy</Link></p>
+        <p>© 2026 Northbridge Strategic Solutions. All rights reserved. | <Link to="/legal">Privacy Policy</Link></p>
       </Copyright>
     </FooterWrapper>
   );

@@ -33,27 +33,27 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled(Link)`
-  font-size: 1.75rem;
+  font-size: 1.9rem;
   font-weight: 400;
-  color: #1a1a1a;
+  color: #000000;
   text-decoration: none;
   font-family: 'Cormorant', serif;
   letter-spacing: 0.02em;
   
   &:hover {
-    color: #1a1a1a;
+    color: #000000;
   }
   
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
   }
   
   @media (max-width: 425px) {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
   
   @media (max-width: 320px) {
-    font-size: 1.125rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -103,7 +103,7 @@ const CTAButton = styled(Link)`
   background-color: #1a1a1a;
   color: #ffffff;
   padding: 0.625rem 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: 0;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9375rem;
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
   return (
     <HeaderWrapper>
       <Nav>
-        <Logo to="/">Crown Time</Logo>
+        <Logo to="/">Northbridge Strategic Solutions</Logo>
         <NavLinks>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about" $hideOnMobile>About</NavLink>
