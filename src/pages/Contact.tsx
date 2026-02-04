@@ -272,8 +272,8 @@ const AlertOverlay = styled.div`
 `;
 
 const AlertDialog = styled.div`
-  background: #5f6465;
-  color: #ffffff;
+  background: #f8f5ee;
+  color: #1a1a1a;
   width: min(720px, 100%);
   border-radius: 0.5rem;
   padding: 2rem 2.5rem;
@@ -302,8 +302,9 @@ const AlertText = styled.p`
 `;
 
 const AlertButton = styled.button`
-  background: #6e7374;
-  color: #ffffff;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #e5e5e5;
   border: none;
   padding: 0.6rem 1.5rem;
   font-size: 0.875rem;
@@ -314,7 +315,7 @@ const AlertButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: #7a8081;
+    background: #f5f5f5;
   }
 `;
 
