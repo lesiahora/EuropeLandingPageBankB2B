@@ -260,6 +260,64 @@ const SubmitButton = styled.button`
   }
 `;
 
+const AlertOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1.5rem;
+`;
+
+const AlertDialog = styled.div`
+  background: #5f6465;
+  color: #ffffff;
+  width: min(720px, 100%);
+  border-radius: 0.5rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+`;
+
+const AlertText = styled.p`
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
+`;
+
+const AlertButton = styled.button`
+  background: #6e7374;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #7a8081;
+  }
+`;
+
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -446,17 +504,38 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Form submission handler (non-functional as per requirements)
     console.log('Form submitted:', formData);
+    setShowAlert(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    let sanitizedValue = value;
+
+    if (name === 'name') {
+      sanitizedValue = sanitizedValue.replace(/[^\p{L}\s'-]/gu, '').slice(0, 75);
+    }
+
+    if (name === 'phone') {
+      sanitizedValue = sanitizedValue.replace(/\D/g, '');
+    }
+
+    if (name === 'subject') {
+      sanitizedValue = sanitizedValue.slice(0, 200);
+    }
+
+    if (name === 'message') {
+      sanitizedValue = sanitizedValue.slice(0, 600);
+    }
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: sanitizedValue
     });
   };
 
@@ -486,6 +565,7 @@ const Contact: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your name and surname"
+                maxLength={75}
                 required
               />
             </FormGroup>
@@ -511,7 +591,9 @@ const Contact: React.FC = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+44 161 000 0000"
+                placeholder="44 161 000 0000"
+                inputMode="numeric"
+                pattern="\d*"
               />
             </FormGroup>
             
@@ -524,6 +606,7 @@ const Contact: React.FC = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="How can we help you?"
+                maxLength={200}
                 required
               />
             </FormGroup>
@@ -536,6 +619,7 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell us about your project or inquiry..."
+                maxLength={600}
                 required
               />
             </FormGroup>
@@ -610,6 +694,18 @@ const Contact: React.FC = () => {
             </MapPlaceholder>
           </ContactInfo>
         </ContactGrid>
+        {showAlert && (
+          <AlertOverlay role="dialog" aria-modal="true" aria-label="Message sent">
+            <AlertDialog>
+              <AlertText>
+                Thank you for filling out the form. Your message has been sent.
+              </AlertText>
+              <AlertButton type="button" onClick={() => setShowAlert(false)}>
+                OK
+              </AlertButton>
+            </AlertDialog>
+          </AlertOverlay>
+        )}
       </ContentSection>
       
       <Footer />
