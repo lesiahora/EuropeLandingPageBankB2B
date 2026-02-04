@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -265,10 +265,21 @@ const AlertOverlay = styled.div`
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 2000;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 1.5rem;
+`;
+
+const slideDown = keyframes`
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `;
 
 const AlertDialog = styled.div`
@@ -282,6 +293,7 @@ const AlertDialog = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  animation: ${slideDown} 0.25s ease-out;
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -506,6 +518,16 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(() => {
+    if (!showAlert) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
+
+    return () => window.clearTimeout(timer);
+  }, [showAlert]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
